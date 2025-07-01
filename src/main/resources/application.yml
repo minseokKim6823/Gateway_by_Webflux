@@ -1,0 +1,56 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: fastapi-was-route
+          uri: http://localhost:8000
+          predicates:
+            - Path=/fastapi/**
+          filters:
+            - StripPrefix=1
+        - id: spring-was-route
+          uri: http://localhost:8081
+          predicates:
+            - Path=/spring/**
+          filters:
+            - StripPrefix=1
+        # Spring WAS API 문서를 위한 라우트 추가
+        - id: spring-api-docs
+          uri: http://localhost:8081
+          predicates:
+            - Path=/spring-api-docs/**
+          filters:
+            - StripPrefix=1
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+    config-url: /v3/api-docs/swagger-config
+    urls:
+      - name: FastAPI
+        url: /fastapi/openapi.json
+      - name: Spring WAS
+        url: /spring-api-docs/v3/api-docs
+    # 외부 JavaScript 파일 설정
+    custom-js: /js/swagger-initial.js
+    custom-css: /css/swagger-custom.css
+    # Swagger UI에서 서버 URL을 Gateway를 통한 경로로 설정
+    servers:
+      - url: http://localhost:8080/spring
+        description: Spring WAS via Gateway
+      - url: http://localhost:8080/fastapi  
+        description: FastAPI via Gateway
+  show-actuator: true
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    org.springdoc: DEBUG
+    org.springframework.web: DEBUG

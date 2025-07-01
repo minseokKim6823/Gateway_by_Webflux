@@ -1,0 +1,77 @@
+/* Swagger UI 커스텀 스타일 */
+
+/* 상단 바 숨기기 */
+.swagger-ui .topbar {
+    display: none;
+}
+
+/* 정보 섹션 마진 조정 */
+.swagger-ui .info {
+    margin: 50px 0;
+}
+
+/* 스키마 컨테이너 스타일 */
+.swagger-ui .scheme-container {
+    background: #fafafa;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 10px 0;
+}
+
+/* 서버 선택 드롭다운 스타일 */
+.swagger-ui .servers > label {
+    font-weight: bold;
+    color: #3b4151;
+}
+
+.swagger-ui .servers select {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #d3d3d3;
+    background-color: white;
+}
+
+/* API 그룹 탭 스타일 */
+.swagger-ui .info .title {
+    color: #3b4151;
+    font-size: 2em;
+    font-weight: 300;
+}
+
+/* 작업 버튼 스타일 */
+.swagger-ui .btn.execute {
+    background-color: #4990e2;
+    border-color: #4990e2;
+}
+
+.swagger-ui .btn.execute:hover {
+    background-color: #357abd;
+    border-color: #357abd;
+}
+
+/* 응답 코드 색상 */
+.swagger-ui .responses-inner h4 {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.swagger-ui .response-col_status {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* 파라미터 테이블 스타일 */
+.swagger-ui table thead tr td,
+.swagger-ui table thead tr th {
+    padding: 12px;
+    font-weight: bold;
+    background-color: #f7f7f7;
+}
+
+/* 모델 섹션 스타일 */
+.swagger-ui .model-container {
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 10px 0;
+}
