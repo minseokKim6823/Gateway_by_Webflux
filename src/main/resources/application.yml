@@ -31,6 +31,4 @@ springdoc:
         url: /fastapi/openapi.json
       - name: "Labelling API Service"
         url: /spring/v3/api-docs
-logging:
-  level:
-    org.springframework.cloud.gateway: INFO
+
